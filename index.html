@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<title>Meme Generator</title>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=2">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <h1 id="format">Meme Generator</h1>
+        <body>
+            <body style="background-color: blue"</body>
+            <form>
+                <p id="format">Meme Text:</p> <input type="text" id="user_text" maxlength="70" oninput="update_text()"><p>
+            </form>
+            <form>
+                <p id="format">Meme File:</p> <input type="file" id="user_picture" onchange="update_image()"><p>
+            </form>
+            <div id="meme_text"><center>Example</center></div>
+            <div id="meme_picture"><img id="img" src="" height="500px" width ="300px"></div>
+
+            <script type="text/javascript">
+            function update_text(){
+                var user_text = document.getElementById("user_text");
+                var meme_text = document.getElementById("meme_text");
+                meme_text.innerHTML = user_text.value;
+            }
+
+            function update_image(){
+                var img = document.querySelector('img');
+                var file = document.querySelector('input[type=file]').files[0];
+                img.src = window.URL.createObjectURL(file);
+            }
+            </script>
+        </body>
+</html>
